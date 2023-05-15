@@ -15,6 +15,7 @@ Still to do:<br>
 4: fix the keyboard as for now works only with US keyboard<br>
 <br>
 As an additional, and in my opinion useful, add on I have implemented a clear screen pressing F4.<br>
+This too needs a bit of fixing here and there, but when time will leave me to work on it again I will try to fix it<br>
 <br>
 
 
