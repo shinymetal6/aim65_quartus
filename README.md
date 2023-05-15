@@ -5,7 +5,7 @@ There is a MiSTer port on the Arrow SocKIT here, and as I have a SocKIT board I 
 Behind the templates, the structures seem to me very similar, so probably a port on the MiSTer board should be relatively easy, but I don't have such board.<br>
 <br>
 Basically the aim65_quartus runs like an AIM65 at 1 MHz, has 32KBytes (!) of ram and excluding printer and tape all the peripherals are in place and runs.<br>
-The 6502 core is the Arlet one, or the 65C02 version based on the Arlet core.<br>
+The 6502 core is the <a href="http://https://github.com/Arlet/verilog-6502">Arlet</a> one, or the 65C02 version based on the Arlet core.<br>
 The AIM65 displays are routed to a simple video output, some pictures below.<br>
 The MiSTer menu can be used to have the expansion rom with basic, forth and pl/65, again some pictures below<br>
 <br>
@@ -20,12 +20,14 @@ As an additional, and in my opinion useful, add on I have implemented a clear sc
 This too needs a bit of fixing here and there, but when time will leave me to work on it again I will try to fix it<br>
 <br>
 <img src="screenshots/R_command.jpg" />
-<center>Just booted, R command in action ...</center>
+<center>Just booted, R command in action ...</center><br>
 <img src="screenshots/memdump.jpg" />
-<center>Some memory dump ...</center>
+<center>Some memory dump ...</center><br>
 <img src="screenshots/basic.jpg" />
-<center>Basic started ...</center>
+<center>Basic started ...</center><br>
 <img src="screenshots/sockit.jpg" />
-<center>The board where AIM65 runs ...</center>
+<center>The board where AIM65 runs ...</center><br>
+
+<a href="http://www.latticesemi.com/Products/DevelopmentBoardsAndKits/iCE40HX8KBreakoutBoard.aspx" rel="nofollow">iCE40HX8K-B-EVN breakout</a>
 
 
