@@ -16,7 +16,7 @@ The MiSTer menu can be used to have the expansion rom with basic, forth and pl/6
 <li>fix the keyboard as for now works only with US keyboard</li>
 <li>a lot of more I have not yet found ...</li>
 <br>
-As an additional, and in my opinion useful, add on I have implemented a clear screen pressing F4.<br>
+As an additional, and in my opinion useful, add on I have implemented a clear screen pressing F4, currently not used on real AIM65.<br>
 This too needs a bit of fixing here and there, but when time will leave me to work on it again I will try to fix it<br>
 <br>
 
