@@ -20,6 +20,6 @@ As an additional, and in my opinion useful, add on I have implemented a clear sc
 This too needs a bit of fixing here and there, but when time will leave me to work on it again I will try to fix it<br>
 <br>
 <img src="screenshots/R_command.jpg" />
-<br>Just booted, R command in action ...<br>
+<center>Just booted, R command in action ...</center>
 
 
