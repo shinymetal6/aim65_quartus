@@ -5,7 +5,7 @@ There is a MiSTer port on the Arrow SocKIT here, and as I have a SocKIT board I 
 Behind the templates, the structures seem to me very similar, so probably a port on the MiSTer board should be relatively easy, but I don't have such board.<br>
 <br>
 Basically the aim65_quartus runs like an AIM65 at 1 MHz, has 32KBytes (!) of ram and excluding printer and tape all the peripherals are in place and runs.<br>
-The 6502 core is the <a href="http://https://github.com/Arlet/verilog-6502">Arlet</a> one, or the 65C02 version based on the Arlet core.<br>
+The 6502 core is the <a href="http://https://github.com/Arlet/verilog-6502">Arlet</a> one, or the <a href="https://github.com/hoglet67/CoPro6502/tree/master/src/Arlet">Hoglet67 65C02</a> version based on the Arlet core.<br>
 The AIM65 displays are routed to a simple video output, some pictures below.<br>
 The MiSTer menu can be used to have the expansion rom with basic, forth and pl/65, again some pictures below<br>
 <br>
