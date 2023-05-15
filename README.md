@@ -6,7 +6,7 @@ Behind the templates, the structures seem to me very similar, so probably a port
 <br>
 Basically the aim65_quartus runs like an AIM65 at 1 MHz, has 32KBytes (!) of ram and excluding printer and tape all the peripherals are in place and runs.<br>
 The 6502 core is the <a href="http://https://github.com/Arlet/verilog-6502">Arlet</a> one, or the <a href="https://github.com/hoglet67/CoPro6502/tree/master/src/Arlet">Hoglet67 65C02</a> version based on the Arlet core.<br>
-The AIM65 displays are routed to a simple video output, some pictures below.<br>
+The AIM65 displays are routed to a simple video output, some ( quite bad ) pictures below.<br>
 The MiSTer menu can be used to have the expansion rom with basic, forth and pl/65, again some pictures below<br>
 <br>
 <h3>Still to do:</h3>
@@ -26,7 +26,7 @@ This too needs a bit of fixing here and there, but when time will leave me to wo
 <img src="screenshots/basic.jpg" />
 <center>Basic started ...</center><br>
 <img src="screenshots/sockit.jpg" />
-<center>The board where AIM65 runs ...</center><br>
+<center>The board where AIM65 runs ...</center><br><br><br>
 
 Many thanks to <a href="http://retro.hansotten.nl/6502-sbc/aim-65/)">Hans Hotten</a> for the fantastic work<br>
 
