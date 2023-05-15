@@ -1,5 +1,5 @@
 # aim65_quartus
-This is an alpha release of the AIM65 in an Intel FPGA using the Arrow SocKIT board.<br>
+This is an alpha release of the AIM65 in an Intel FPGA using the <a href="https://www.arrow.com/en/products/sockit/arrow-development-toolsArrow">SocKIT</a> board.<br>
 The Arrow SocKIT board is a nearly compatible TerASIC DE10 board where MiSTer runs.<br>
 There is a MiSTer port on the Arrow SocKIT here, and as I have a SocKIT board I used their templates.<br><br>
 Behind the templates, the structures seem to me very similar, so probably a port on the MiSTer board should be relatively easy, but I don't have such board.<br>
@@ -28,6 +28,6 @@ This too needs a bit of fixing here and there, but when time will leave me to wo
 <img src="screenshots/sockit.jpg" />
 <center>The board where AIM65 runs ...</center><br>
 
-<a href="http://www.latticesemi.com/Products/DevelopmentBoardsAndKits/iCE40HX8KBreakoutBoard.aspx" rel="nofollow">iCE40HX8K-B-EVN breakout</a>
+Many thanks to <a href="http://retro.hansotten.nl/6502-sbc/aim-65/)">Hans Hotten</a> for the fantastic work<br>
 
 
