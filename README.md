@@ -10,11 +10,11 @@ The AIM65 displays are routed to a simple video output, some pictures below.<br>
 The MiSTer menu can be used to have the expansion rom with basic, forth and pl/65, again some pictures below<br>
 <br>
 Still to do:<br>
-1: find a way to load and store programs, i'm still studying the MiSTer framework<br>
-2: fix an annoying behaviour on the serial port<br>
-3: find why sometimes the screen jumps<br>
-4: fix the keyboard as for now works only with US keyboard<br>
-<br>
+<li>find a way to load and store programs, i'm still studying the MiSTer framework</li>
+<li>fix an annoying behaviour on the serial port</li>
+<li>find why sometimes the screen jumps</li>
+<li>fix the keyboard as for now works only with US keyboard</li>
+<li>a lot of more I have not yet found ...</li>
 As an additional, and in my opinion useful, add on I have implemented a clear screen pressing F4.<br>
 This too needs a bit of fixing here and there, but when time will leave me to work on it again I will try to fix it<br>
 <br>
