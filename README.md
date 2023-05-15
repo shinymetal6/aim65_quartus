@@ -21,5 +21,11 @@ This too needs a bit of fixing here and there, but when time will leave me to wo
 <br>
 <img src="screenshots/R_command.jpg" />
 <center>Just booted, R command in action ...</center>
+<img src="screenshots/memdump.jpg" />
+<center>Some memory dump ...</center>
+<img src="screenshots/basic.jpg" />
+<center>Basic started ...</center>
+<img src="screenshots/sockit.jpg" />
+<center>The board where AIM65 runs ...</center>
 
 
