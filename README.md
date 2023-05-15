@@ -20,13 +20,13 @@ As an additional and in my opinion useful add on, I have implemented a clear scr
 This too needs a bit of fixing here and there, but when time will leave me to work on it again I will try to fix it<br>
 <br>
 <img src="screenshots/R_command.jpg" />
-<center>Just booted, R command in action ...</center><br>
+<center>Just booted, R command in action ...</center><br><br><br>
 <img src="screenshots/memdump.jpg" />
-<center>Some memory dump ...</center><br>
+<center>Some memory dump ...</center><br><br><br><br>
 <img src="screenshots/basic.jpg" />
-<center>Basic started ...</center><br>
+<center>Basic started ...</center><br><br><br><br>
 <img src="screenshots/sockit.jpg" />
-<center>The board where AIM65 runs ...</center><br><br><br>
+<center>The board where AIM65 runs ...</center><br><br><br><br><br>
 
 Many thanks to <a href="http://retro.hansotten.nl/6502-sbc/aim-65/)">Hans Hotten</a> for the fantastic work<br>
 
