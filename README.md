@@ -19,5 +19,6 @@ The MiSTer menu can be used to have the expansion rom with basic, forth and pl/6
 As an additional, and in my opinion useful, add on I have implemented a clear screen pressing F4, currently not used on real AIM65.<br>
 This too needs a bit of fixing here and there, but when time will leave me to work on it again I will try to fix it<br>
 <br>
+<img src="screenshots/R_command.jpg" />
 
 
