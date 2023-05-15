@@ -21,7 +21,7 @@ Still with the MiSTer menu the serial port can be enabled, the characters color 
 As an additional and in my opinion useful add on, I have implemented a clear screen pressing F4, currently not used on real AIM65.<br>
 This too needs a bit of fixing here and there, but when time will leave me to work on it again I will try to fix it<br>
 <br>
-# aim65_quartus in action
+<h2>aim65_quartus in action</H2>
 <img src="screenshots/R_command.jpg" />
 <center>Just booted, R command in action</center><br><br><br>
 <img src="screenshots/memdump.jpg" />
