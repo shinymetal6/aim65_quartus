@@ -30,7 +30,7 @@ This too needs a bit of fixing here and there, but when time will leave me to wo
 <img src="screenshots/sockit.jpg" />
 <center>The board where AIM65 runs ...</center><br><br><br><br><br>
 
-Many thanks to <a href="http://retro.hansotten.nl/6502-sbc/aim-65/">Hans Hotten</a> for the funtastic work<br>
+Many thanks to <a href="http://retro.hansotten.nl/6502-sbc/aim-65/">Hans Hotten</a> for the funtastic work!<br>
 <br>And comments are welcome
 
 
