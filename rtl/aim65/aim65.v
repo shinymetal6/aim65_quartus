@@ -2,7 +2,7 @@
 //  AIM65 replica
 // 
 //  Port to MiSTer
-//  Copyright (C) 2017-2019 Fil shinymetal6@gmail.com
+//  Copyright (C) 2023 Fil shinymetal6@gmail.com
 //
 //  This program is free software; you can redistribute it and/or modify it
 //  under the terms of the GNU General Public License as published by the Free
@@ -66,52 +66,9 @@ end
 
 assign led_power = kbd_not_tty ? 2'b10 : 2'b11;
 
-// decoder
-wire [7:0] ram_do;
-wire [7:0] video_do;
-wire [7:0] z22_do;
-wire [7:0] z23_do;
-wire [7:0] z24_do;
-wire [7:0] z25_do;
-wire [7:0] z26_do; 
-wire [7:0] z25_26_do;
-wire [7:0] csa0_6522_do;
-wire [7:0] csa4_6532_do;
-wire [7:0] csa8_6522_do;
-wire [7:0] csac_6520_do;  
-
-wire ram_cs 		=	(addr[15:12] < 4'h8 ) ? 1'b1 : 1'b0;
-wire video_cs 		=	(addr[15:12] == 4'h9 ) ? 1'b1 : 1'b0;
-
-wire z22_cs			=	(addr[15:12] == 4'hf) ? 1'b1 : 1'b0; 	
-wire z23_cs			=	(addr[15:12] == 4'he) ? 1'b1 : 1'b0; 	
-wire z24_cs			=	(addr[15:12] == 4'hd) ? 1'b1 : 1'b0; 	
-wire z25_cs			=	(addr[15:12] == 4'hc) ? 1'b1 : 1'b0; 	
-wire z26_cs			=	(addr[15:12] == 4'hb) ? 1'b1 : 1'b0; 
-wire csa0_6522 		= 	(addr[15:8] == 8'ha0) ? 1'b1 : 1'b0;
-wire csa4_6532 		= 	(addr[15:8] == 8'ha4) ? 1'b1 : 1'b0;
-wire csa8_6522 		= 	(addr[15:8] == 8'ha8) ? 1'b1 : 1'b0;
-wire csac_6520 		= 	(addr[15:8] == 8'hac) ? 1'b1 : 1'b0; 
-
-reg video_cs_prev = 1'b0;
-always @(posedge cpu_clk) video_cs_prev <= video_cs;
-reg csa0_6522_prev = 1'b0;
-always @(posedge cpu_clk) csa0_6522_prev <= csa0_6522;
-reg csa4_6532_prev = 1'b0;
-always @(posedge cpu_clk) csa4_6532_prev <= csa4_6532;
-reg csa8_6522_prev = 1'b0;
-always @(posedge cpu_clk) csa8_6522_prev <= csa8_6522;
-reg csac_6520_prev = 1'b0;
-always @(posedge cpu_clk) csac_6520_prev <= csac_6520;
-	
-
 //
 // RAM
 //
-
-reg ram_cs_prev = 1'b0;
-always @(posedge cpu_clk) ram_cs_prev <= ram_cs;
-
 `define RAM_WIDTH 8
 `define RAM_DEPTH 32768
 `define RAM_ADDR_WIDTH $clog2(`RAM_DEPTH) 	
@@ -132,8 +89,6 @@ ram(
 //
 // Z22
 //
-reg z22_cs_prev = 1'b0;
-always @(posedge cpu_clk) z22_cs_prev <= z22_cs;
 `define Z22_ROM_WIDTH 8
 `define Z22_ROM_DEPTH 4096
 `define Z22_ROM_ADDR_WIDTH $clog2(`Z22_ROM_DEPTH) 
@@ -152,8 +107,6 @@ z22(
 //
 // Z23
 //
-reg z23_cs_prev = 1'b0;
-always @(posedge cpu_clk) z23_cs_prev <= z23_cs;
 `define Z23_ROM_WIDTH 8
 `define Z23_ROM_DEPTH 4096
 `define Z23_ROM_ADDR_WIDTH $clog2(`Z23_ROM_DEPTH) 
@@ -172,8 +125,6 @@ z23(
 //
 // Z24
 //
-reg z24_cs_prev = 1'b0;
-always @(posedge cpu_clk) z24_cs_prev <= z24_cs;
 `define Z24_ROM_WIDTH 8
 `define Z24_ROM_DEPTH 4096
 `define Z24_ROM_ADDR_WIDTH $clog2(`Z24_ROM_DEPTH) 
@@ -192,9 +143,6 @@ z24(
 //
 // Z25 ROM
 //
-reg z25_cs_prev = 1'b0;
-always @(posedge cpu_clk) z25_cs_prev <= z25_cs;
-
 `define Z25_ROM_WIDTH 8
 `define Z25_ROM_DEPTH 4096
 `define Z25_ROM_ADDR_WIDTH $clog2(`Z25_ROM_DEPTH) 
@@ -243,9 +191,6 @@ z25_pl65(
 //
 // Z26 ROM
 //
-reg z26_cs_prev = 1'b0;
-always @(posedge cpu_clk) z26_cs_prev <= z26_cs;
-	
 `define Z26_ROM_WIDTH 8
 `define Z26_ROM_DEPTH 4096
 `define Z26_ROM_ADDR_WIDTH $clog2(`Z26_ROM_DEPTH) 
@@ -288,22 +233,20 @@ z26_pl65(
     .data_out (z26_pl65_do)
 );								 
 
-// data mux for applications 
-wire [7:0]	z25_basic_do,z25_forth_do,z25_pl65_do;	
-wire [7:0]	z26_basic_do,z26_forth_do,z26_pl65_do;	
+wire [7:0] ram_do;
+wire [7:0] video_do;
+wire [7:0] z22_do;
+wire [7:0] z23_do;
+wire [7:0] z24_do;
+wire [7:0] z25_do;
+wire [7:0] z26_do; 
+wire [7:0] z25_26_do;
+wire [7:0] csa0_6522_do;
+wire [7:0] csa4_6532_do;
+wire [7:0] csa8_6522_do;
+wire [7:0] csac_6520_do; 
 
-assign z25_do =
-    (ext_selector == 2'b01) ? z25_basic_do :
-    (ext_selector == 2'b10) ? z25_forth_do :
-    (ext_selector == 2'b11) ? z25_pl65_do :
-    8'h00;	
-	
-assign z26_do =
-    (ext_selector == 2'b01) ? z26_basic_do :
-    (ext_selector == 2'b10) ? z26_forth_do :
-    (ext_selector == 2'b11) ? z26_pl65_do :
-    8'h00;	
-	
+
 // Peripherals 
 `define DUMMY_VAL 8'h00
 `define DUMMY_VALH 8'hff
@@ -435,7 +378,7 @@ video video_aim65 (
 	.b(b)
 	);
 //
-// CPU
+// Decoder / mux
 //
 
 wire	rdy = 1;
@@ -444,6 +387,43 @@ wire	[7:0] instruction;
 wire [15:0] addr;
 wire [7:0] cpu_dout;
 wire [7:0] cpu_din;
+
+aim65_decmux aim65_decmux (
+	.clk(cpu_clk),
+	.ext_selector(ext_selector),
+	.addr(addr),
+	.ram_do(ram_do),
+	.video_do(video_do),
+	.z22_do(z22_do),
+	.z23_do(z23_do),
+	.z24_do(z24_do),
+	.z25_basic_do(z25_basic_do),
+	.z25_forth_do(z25_forth_do),
+	.z25_pl65_do(z25_pl65_do),
+	.z26_basic_do(z26_basic_do),
+	.z26_forth_do(z26_forth_do),
+	.z26_pl65_do(z26_pl65_do),
+	.csa0_6522_do(csa0_6522_do),
+	.csa4_6532_do(csa4_6532_do),
+	.csa8_6522_do(csa8_6522_do),
+	.csac_6520_do(csac_6520_do),
+	.ram_cs(ram_cs),
+	.video_cs(video_cs),
+	.z22_cs(z22_cs),
+	.z23_cs(z23_cs),
+	.z24_cs(z24_cs),
+	.z25_cs(z25_cs),
+	.z26_cs(z26_cs),
+	.csa0_6522(csa0_6522),
+	.csa4_6532(csa4_6532),
+	.csa8_6522(csa8_6522),
+	.csac_6520(csac_6520),
+	.cpu_data(cpu_din)
+);
+
+//
+// CPU
+//
 
 cpu_65c02 cpu(
     .clk (cpu_clk),
@@ -459,18 +439,5 @@ cpu_65c02 cpu(
     .RDY (rdy)
 );
 
-assign cpu_din =
-    ram_cs_prev ? ram_do :
-    video_cs_prev ? video_do :
-    z22_cs_prev ? z22_do :
-    z23_cs_prev ? z23_do :
-    z24_cs_prev ? z24_do :
-    z25_cs_prev ? z25_do :
-    z26_cs_prev ? z26_do :
-    csa0_6522_prev ? csa0_6522_do :
-    csa4_6532_prev ? csa4_6532_do :
-    csa8_6522_prev ? csa8_6522_do :
-    csac_6520_prev ? csac_6520_do :
-    8'h00;	
 
 endmodule

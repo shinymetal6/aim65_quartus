@@ -2,7 +2,7 @@
 //  AIM65 replica
 // 
 //  Port to MiSTer
-//  Copyright (C) 2017-2019 Fil shinymetal6@gmail.com
+//  Copyright (C) 2023 Fil shinymetal6@gmail.com
 //
 //  This program is free software; you can redistribute it and/or modify it
 //  under the terms of the GNU General Public License as published by the Free
