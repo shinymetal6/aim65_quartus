@@ -1,3 +1,0 @@
-10 FOR I = 0 TO 20
-20 PRINT "Ciao Fil"
-30 NEXT I
