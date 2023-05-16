@@ -1,23 +1,23 @@
-//-----------------------------------------------------------------------------
+//============================================================================
+//  AIM65 replica
+// 
+//  Port to MiSTer
+//  Copyright (C) 2017-2019 Fil shinymetal6@gmail.com
 //
-// Title       : aim65_display
-// Design      : Naim65
-// Author      : fil
-// Company     : mycomp
+//  This program is free software; you can redistribute it and/or modify it
+//  under the terms of the GNU General Public License as published by the Free
+//  Software Foundation; either version 2 of the License, or (at your option)
+//  any later version.
 //
-//-----------------------------------------------------------------------------
+//  This program is distributed in the hope that it will be useful, but WITHOUT
+//  ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or
+//  FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+//  more details.
 //
-// File        : D:/SVN/verilog/Sources/peripherals/aim65_display.v
-// Generated   : Mon Feb 20 11:44:18 2023
-// From        : interface description file
-// By          : Itf2Vhdl ver. 1.22
-//
-//-----------------------------------------------------------------------------
-//
-// Description : 
-//
-//-----------------------------------------------------------------------------
-`timescale 1 ns / 1 ps
+//  You should have received a copy of the GNU General Public License along
+//  with this program; if not, write to the Free Software Foundation, Inc.,
+//  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+//============================================================================
 
 module aim65_display 
 ( 
