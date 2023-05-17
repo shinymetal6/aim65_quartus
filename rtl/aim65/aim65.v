@@ -157,7 +157,6 @@ z25_basic(
     .addr (addr[`Z25_ROM_ADDR_WIDTH-1:0]),
     .data_out (z25_basic_do)
 );
-
 `define Z25_ROM_WIDTH 8
 `define Z25_ROM_DEPTH 4096
 `define Z25_ROM_ADDR_WIDTH $clog2(`Z25_ROM_DEPTH) 
@@ -232,6 +231,8 @@ z26_pl65(
     .addr (addr[`Z26_ROM_ADDR_WIDTH-1:0]),
     .data_out (z26_pl65_do)
 );								 
+wire	ram_cs,rw,z22_cs,z23_cs,z24_cs,z25_cs,z26_cs,csa0_6522,csa4_6532,csa8_6522,csac_6520,video_cs;
+wire	[7:0]	z25_basic_do,z25_forth_do,z25_pl65_do,z26_basic_do,z26_forth_do,z26_pl65_do;
 
 wire [7:0] ram_do;
 wire [7:0] video_do;
@@ -256,6 +257,7 @@ wire [7:0] csa8_via6522_portb_in = {1'b1,rx_data,1'b0,1'b0,kbd_not_tty,1'b0,1'b0
 wire [7:0] csa8_via6522_paOut,csa8_via6522_pbOut;
 wire ca1_in=1'b1,ca2_in=1'b1, cb1_in=1'b1,cb2_in=1'b1;
 assign tx_data = csa8_via6522_pbOut[2];
+wire	ca2_out,cb1_out,cb2_out;
 
 via6522 csa8_via6522 (
 	.cs(csa8_6522),
@@ -278,7 +280,8 @@ via6522 csa8_via6522 (
 	.cb2_in(cb2_in),
 	.irq(irq)
 );	
-		
+
+wire	irq,video_clear,irqa,irqb;
 wire [7:0] csa4_riot6532_pbOut;
 riot6532 csa4_riot6532 (
 	.cs(csa4_6532),
@@ -425,7 +428,7 @@ aim65_decmux aim65_decmux (
 // CPU
 //
 
-cpu_65c02 cpu(
+cpu cpu(
     .clk (cpu_clk),
     .reset (reset),
     .AB (addr),
@@ -434,8 +437,8 @@ cpu_65c02 cpu(
     .RW (rw),
     .IRQ (1'b0),
     .NMI (1'b0),
-    .SYNC (sync),
-    //.instruction (instruction),
+    .sync (sync),
+    .instruction (instruction),
     .RDY (rdy)
 );
 
