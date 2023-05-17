@@ -3,6 +3,7 @@ set_global_assignment -name SYSTEMVERILOG_FILE aim65.sv
 set_global_assignment -name VERILOG_FILE rtl/aim65/aim65.v
 set_global_assignment -name SYSTEMVERILOG_FILE rtl/aim65/aim65_display.sv
 set_global_assignment -name VERILOG_FILE rtl/aim65/aim65_keyboard.v
+set_global_assignment -name VERILOG_FILE rtl/aim65/aim65_decmux.v
 set_global_assignment -name VERILOG_FILE rtl/aim65/dpram.v
 set_global_assignment -name VERILOG_FILE rtl/aim65/pia6520_01.v
 set_global_assignment -name VERILOG_FILE rtl/aim65/ram.v
