@@ -215,6 +215,7 @@ localparam CONF_STR = {
 	"O[4:3],Color,White,Red,Green,Blue;",
 	"O[6:5],Extended ROM,None,Basic,Forth,PL/65;",
 	"-;",
+	/*
 	"P1,Test Page 1;",
 	"P1-;",
 	"P1-, -= Options in page 1 =-;",
@@ -231,6 +232,7 @@ localparam CONF_STR = {
 	"P2O[7:6],Option 2,1,2,3,4;",
 	"-;",
 	"-;",
+	*/
 	"T[0],Reset;",
 	"R[0],Reset and close OSD;",
 	"V,v",`BUILD_DATE 

@@ -82,6 +82,9 @@ parameter   PA0 = 0;
 reg	[7:0]	kbd_ascii_out;
 reg			f4_pressed;
 
+reg	boot_clear;
+reg	[3:0]	boot_clear_cntr;
+
 always @(posedge clk) begin
 	if(reset )
 	begin
@@ -100,8 +103,21 @@ always @(posedge clk) begin
 		kbd_ascii_out = 8'h00;
 		f4_pressed = 1'b0;
 		video_clear = 1'b0;
+		boot_clear_cntr = 4'b0000;
+		boot_clear = 1;
+	end				   
+	/* */
+	if ( boot_clear )
+	begin
+		video_clear = 1'b1;
+		boot_clear_cntr = boot_clear_cntr + 1'b1;
+		if ( boot_clear_cntr[3] )
+		begin
+			boot_clear = 1'b0;
+			video_clear = 1'b0;
+		end
 	end
-	
+/*		*/
 	old_stb <= ps2_key[10];
 	if ( select == 0 )
 	begin

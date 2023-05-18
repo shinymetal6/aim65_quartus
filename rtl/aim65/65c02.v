@@ -48,7 +48,7 @@
 
 // `define IMPLEMENT_CORRECT_BCD_FLAGS
 
-module cpu_65c02( clk, reset, AB, DI, DO, RW, IRQ, NMI, RDY, SYNC );
+module cpu_65c02( clk, reset, AB, DI, DO, RW, IRQ, NMI, RDY, sync,instruction );
 
 input clk;              // CPU clock
 input reset;            // reset signal
@@ -59,8 +59,8 @@ output RW;              // write enable
 input IRQ;              // interrupt request
 input NMI;              // non-maskable interrupt request
 input RDY;              // Ready signal. Pauses CPU when RDY=0
-output reg SYNC;        // AB is first cycle of the intruction
-
+output reg sync;        // AB is first cycle of the intruction
+output reg [7:0] instruction;
 /*
  * internal signals
  */
@@ -916,15 +916,6 @@ always @(posedge clk )
  * time to read the IR again before the next decode.
  */
 
-//reg RDY1 = 1;
-
-//always @(posedge clk )
-//    RDY1 <= RDY;
-
-//always @(posedge clk )
-//    if( ~RDY && RDY1 )
-//        DIHOLD <= DI;
-
 always @(posedge clk )
     if( reset )
         IRHOLD_valid <= 0;
@@ -936,8 +927,8 @@ always @(posedge clk )
             IRHOLD_valid <= 0;
     end
 
-assign IR = (IRQ & ~I) | NMI_edge ? 8'h00 :
-                     IRHOLD_valid ? IRHOLD : DIMUX;
+assign IR = (IRQ & ~I) | NMI_edge ? 8'h00 :	IRHOLD_valid ? IRHOLD : DIMUX;
+assign instruction = IR;
 
 //assign DIMUX = ~RDY1 ? DIHOLD : DI;
 
@@ -1076,10 +1067,10 @@ always @(posedge clk or posedge reset)
  */
 always @(posedge clk or posedge reset)
     if( reset )
-        SYNC <= 1'b0;
+        sync <= 1'b0;
     else if( RDY ) case( state )
-        BRA0   : SYNC <= !cond_true;
-        BRA1   : SYNC <= !(CO ^ backwards);
+        BRA0   : sync <= !cond_true;
+        BRA1   : sync <= !(CO ^ backwards);
         BRA2,
         FETCH,
         REG,
@@ -1087,11 +1078,11 @@ always @(posedge clk or posedge reset)
         PULL2,
         RTI4,
         JMP1,
-        BRA2   : SYNC <= 1'b1;
-        default: SYNC <= 1'b0;
+        BRA2   : sync <= 1'b1;
+        default: sync <= 1'b0;
     endcase
 
-//assign SYNC = state == DECODE;
+//assign sync = state == DECODE;
 
 /*
  * Additional control signals

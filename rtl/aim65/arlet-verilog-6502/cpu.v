@@ -30,7 +30,7 @@ input IRQ;              // interrupt request
 input NMI;              // non-maskable interrupt request
 input RDY;              // Ready signal. Pauses CPU when RDY=0 
 output reg sync;        // fetch
-output reg [7:0] instruction;        // data out, write bus
+output reg [7:0] instruction;        // IR
 
 always @(WE)
 	RW = ~WE;

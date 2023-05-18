@@ -19,7 +19,19 @@
 //  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
 //============================================================================
 
-module aim65 (
+module aim65 
+	#(
+    parameter Z22_FILENAME			= "rtl/aim65/ROM/monitor_z22.HEX",
+    parameter Z23_FILENAME			= "rtl/aim65/ROM/monitor_z23.HEX",
+    parameter Z24_FILENAME			= "rtl/aim65/ROM/assembler_z24.HEX",
+    parameter Z25_BASIC_FILENAME	= "rtl/aim65/ROM/basic_z25.HEX",
+    parameter Z26_BASIC_FILENAME	= "rtl/aim65/ROM/basic_z26.HEX",
+    parameter Z25_FORTH_FILENAME	= "rtl/aim65/ROM/forth_z25.HEX",
+    parameter Z26_FORTH_FILENAME	= "rtl/aim65/ROM/forth_z26.HEX",
+    parameter Z25_PL65_FILENAME		= "rtl/aim65/ROM/pl65_z25.HEX",
+    parameter Z26_PL65_FILENAME		= "rtl/aim65/ROM/pl65_z26.HEX"
+	)
+	(
 	input         	pixel_clk,
 	input         	cpu_clk,
 	input         	reset,	 
@@ -96,7 +108,8 @@ rom #(
     .ADDR_WIDTH(`Z22_ROM_ADDR_WIDTH),
     .DATA_WIDTH(`Z22_ROM_WIDTH),
     .DEPTH(`Z22_ROM_DEPTH),
-    .INIT_FILE("D:/SVN/verilog/Projects/aim65/aim65_quartus/rtl/aim65/ROM/monitor_z22.hex"))
+    .INIT_FILE(Z22_FILENAME)
+	)
 z22(
     .clk (cpu_clk),
     .cs (z22_cs),
@@ -114,7 +127,8 @@ rom #(
     .ADDR_WIDTH(`Z23_ROM_ADDR_WIDTH),
     .DATA_WIDTH(`Z23_ROM_WIDTH),
     .DEPTH(`Z23_ROM_DEPTH),
-    .INIT_FILE("D:/SVN/verilog/Projects/aim65/aim65_quartus/rtl/aim65/ROM//monitor_z23.hex"))
+	.INIT_FILE(Z23_FILENAME)
+)
 z23(
     .clk (cpu_clk),
     .cs (z23_cs),
@@ -132,7 +146,8 @@ rom #(
     .ADDR_WIDTH(`Z24_ROM_ADDR_WIDTH),
     .DATA_WIDTH(`Z24_ROM_WIDTH),
     .DEPTH(`Z24_ROM_DEPTH),
-    .INIT_FILE("D:/SVN/verilog/Projects/aim65/aim65_quartus/rtl/aim65/ROM//assembler_z24.hex"))
+    .INIT_FILE(Z24_FILENAME)
+	)
 z24(
     .clk (cpu_clk),
     .cs (z24_cs),
@@ -150,7 +165,7 @@ rom #(
     .ADDR_WIDTH(`Z25_ROM_ADDR_WIDTH),
     .DATA_WIDTH(`Z25_ROM_WIDTH),
     .DEPTH(`Z25_ROM_DEPTH),
-    .INIT_FILE("D:/SVN/verilog/Projects/aim65/aim65_quartus/rtl/aim65/ROM/basic_z25.hex")) 
+    .INIT_FILE(Z25_BASIC_FILENAME)) 
 z25_basic(
     .clk (cpu_clk),
     .cs (z25_cs),
@@ -164,7 +179,7 @@ rom #(
     .ADDR_WIDTH(`Z25_ROM_ADDR_WIDTH),
     .DATA_WIDTH(`Z25_ROM_WIDTH),
     .DEPTH(`Z25_ROM_DEPTH),
-    .INIT_FILE("D:/SVN/verilog/Projects/aim65/aim65_quartus/rtl/aim65/ROM/forth_z25.hex")) 
+    .INIT_FILE(Z25_FORTH_FILENAME)) 
 z25_forth(
     .clk (cpu_clk),
     .cs (z25_cs),
@@ -179,7 +194,7 @@ rom #(
     .ADDR_WIDTH(`Z25_ROM_ADDR_WIDTH),
     .DATA_WIDTH(`Z25_ROM_WIDTH),
     .DEPTH(`Z25_ROM_DEPTH),
-    .INIT_FILE("D:/SVN/verilog/Projects/aim65/aim65_quartus/rtl/aim65/ROM/pl65_z25.hex")) 
+    .INIT_FILE(Z25_PL65_FILENAME)) 
 z25_pl65(
     .clk (cpu_clk),
     .cs (z25_cs),
@@ -196,7 +211,7 @@ z25_pl65(
 rom #(
     .ADDR_WIDTH(`Z26_ROM_ADDR_WIDTH),
     .DEPTH(`Z26_ROM_DEPTH),
-    .INIT_FILE("D:/SVN/verilog/Projects/aim65/aim65_quartus/rtl/aim65/ROM/basic_z26.hex")) 
+    .INIT_FILE(Z26_BASIC_FILENAME)) 
 z26_basic(
     .clk (cpu_clk),
     .cs (z26_cs),
@@ -210,7 +225,7 @@ z26_basic(
 rom #(
     .ADDR_WIDTH(`Z26_ROM_ADDR_WIDTH),
     .DEPTH(`Z26_ROM_DEPTH),
-    .INIT_FILE("D:/SVN/verilog/Projects/aim65/aim65_quartus/rtl/aim65/ROM/forth_z26.hex")) 
+    .INIT_FILE(Z26_FORTH_FILENAME)) 
 z26_forth(
     .clk (cpu_clk),
     .cs (z26_cs),
@@ -224,7 +239,7 @@ z26_forth(
 rom #(
     .ADDR_WIDTH(`Z26_ROM_ADDR_WIDTH),
     .DEPTH(`Z26_ROM_DEPTH),
-    .INIT_FILE("D:/SVN/verilog/Projects/aim65/aim65_quartus/rtl/aim65/ROM/pl65_z26.hex")) 
+    .INIT_FILE(Z26_PL65_FILENAME)) 
 z26_pl65(
     .clk (cpu_clk),
     .cs (z26_cs),
@@ -359,7 +374,7 @@ aim65_display aim65_display (
 //
 // Video
 //
-video video_aim65 (
+aim65_video aim65_video (
 	.pixel_clk(pixel_clk),
 	.cpu_clk(cpu_clk),
 	.reset(reset),
